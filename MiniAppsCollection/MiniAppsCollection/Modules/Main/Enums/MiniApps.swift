@@ -22,4 +22,15 @@ enum MiniApps {
             return UIImage(named: "ic_flags")
         }
     }
+    
+    var title: String {
+        switch self {
+        case .weather:
+            return "Weather App"
+        case .ticTacToe:
+            return "Tic Tac Toe"
+        case .flags:
+            return "World: Flags"
+        }
+    }
 }

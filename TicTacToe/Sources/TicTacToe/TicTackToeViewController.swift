@@ -10,6 +10,9 @@ import SnapKit
 
 final class TicTacToeViewController: UIViewController {
     
+    private var currentPlayer: Player = .X
+    private var movesCount = 0
+    
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let size = min(view.frame.width, view.frame.height)
@@ -47,7 +50,9 @@ final class TicTacToeViewController: UIViewController {
 }
 
 extension TicTacToeViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
 
 extension TicTacToeViewController: UICollectionViewDataSource {

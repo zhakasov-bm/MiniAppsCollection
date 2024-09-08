@@ -65,8 +65,6 @@ final class MainViewController: UIViewController {
         UIView.animate(withDuration: 0.5) {
             self.tableView.beginUpdates()
             self.tableView.endUpdates()
-        } completion: { _ in
-//            self.tableView.reloadData()
         }
     }
 }
@@ -89,13 +87,38 @@ extension MainViewController: UITableViewDataSource {
         let miniApp = presenter?.miniAppForIndexPath(indexPath)
         let height: CellHeight = switchView.isOn ? .half : .oneEight
         cell.configure(with: miniApp, height: height)
+        cell.didStartTap = { [weak self] app in
+            self?.navigateToApp(app)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let screenHeight = max(view.frame.height, view.frame.width)
-        let isPortrait = UIDevice.current.orientation.isPortrait || UIDevice.current.orientation.isFlat
-        let cellHeight: CGFloat = switchView.isOn ? screenHeight / 2 : (screenHeight - 10 * 7) / 8
-        return isPortrait ? cellHeight : (view.frame.width - 10 * 7) / 8
+        let cellHeight: CellHeight = switchView.isOn ? .half : .oneEight
+        switch UIDevice.current.orientation {
+        case .portrait, .portraitUpsideDown, .unknown:
+            if cellHeight == .half {
+                return view.frame.height / 2
+            } else {
+                return (view.frame.height - 10 * 7) / 8
+            }
+        default:
+            if cellHeight == .half {
+                return view.frame.height / 2
+            } else {
+                return (view.frame.width - 10 * 7) / 8
+            }
+        }
+    }
+    
+    private func navigateToApp(_ app: MiniApp) {
+        switch app {
+        case .weather:
+            break
+        case .ticTacToe:
+            break
+        case .flags:
+            break
+        }
     }
 }

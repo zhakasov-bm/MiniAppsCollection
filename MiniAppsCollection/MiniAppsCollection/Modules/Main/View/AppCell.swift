@@ -9,6 +9,11 @@ import UIKit
 
 final class AppCell: UITableViewCell {
     
+    private var cellHeight: CellHeight = .oneEight
+    private var appType: MiniApp?
+    
+    var didStartTap: ((MiniApp) -> Void)?
+    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -31,7 +36,15 @@ final class AppCell: UITableViewCell {
         return label
     }()
     
-    private var cellHeight: CellHeight = .oneEight
+    private lazy var startButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Start playing", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 8
+        button.addTarget(self, action: #selector(startTapped), for: .touchUpInside)
+        return button
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,7 +77,8 @@ final class AppCell: UITableViewCell {
         backgroundColor = .systemGray6
         contentView.backgroundColor = .systemGray6
         contentView.addSubview(containerView)
-        containerView.addSubviews([appImageView, titleLabel])
+        containerView.clipsToBounds = true
+        containerView.addSubviews([appImageView, titleLabel, startButton])
     }
     
     private func setupConstraints() {
@@ -77,26 +91,24 @@ final class AppCell: UITableViewCell {
             make.top.equalToSuperview().offset(20)
             make.leading.equalTo(appImageView.snp.trailing).offset(32)
         }
+        startButton.snp.makeConstraints { make in
+            make.top.equalTo(appImageView.snp.bottom).offset(50)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(50)
+        }
     }
     
     func configure(with miniApp: MiniApp?, height: CellHeight) {
         guard let miniApp else { return }
         cellHeight = height
-        switch height {
-        case .half:
-            configureForHalfHeight()
-        case .oneEight:
-            configureForOneEightHeight()
-        }
+        appType = miniApp
         appImageView.image = miniApp.image
         titleLabel.text = miniApp.title
     }
     
-    private func configureForHalfHeight() {
-        
-    }
-    
-    private func configureForOneEightHeight() {
-        
+    @objc func startTapped() {
+        guard let appType else { return }
+        didStartTap?(appType)
     }
 }

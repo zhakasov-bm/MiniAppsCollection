@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import TicTacToe
 
 protocol IMainView: AnyObject {
     var presenter: IMainPresenter? { get set }
@@ -116,9 +117,15 @@ extension MainViewController: UITableViewDataSource {
         case .weather:
             break
         case .ticTacToe:
-            break
+            navigateToTicTacToe()
         case .flags:
             break
         }
+    }
+    
+    private func navigateToTicTacToe() {
+        guard let navigationController else { return }
+        let ticTacToe = TicTacToe()
+        ticTacToe.launchGame(navVc: navigationController)
     }
 }

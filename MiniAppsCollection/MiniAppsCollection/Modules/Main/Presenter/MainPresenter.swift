@@ -14,7 +14,7 @@ protocol IMainPresenter: AnyObject {
 
 final class MainPresenter: IMainPresenter {
     weak var view: IMainView?
-    private let miniApps: [MiniApp] = [.weather, .ticTacToe, .flags]
+    private let miniApps: [MiniApp] = [.ticTacToe, .weather, .flags]
     
     init(view: IMainView) {
         self.view = view

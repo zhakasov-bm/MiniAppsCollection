@@ -21,6 +21,7 @@
 		168688822C8DF7E100D55320 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688812C8DF7E100D55320 /* UIColor+Extensions.swift */; };
 		168688852C8E00CE00D55320 /* MiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688842C8E00CE00D55320 /* MiniApp.swift */; };
 		168688872C8E1F4700D55320 /* CellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688862C8E1F4700D55320 /* CellHeight.swift */; };
+		16D637852C8E366400152CE1 /* TicTacToe in Frameworks */ = {isa = PBXBuildFile; productRef = 16D637842C8E366400152CE1 /* TicTacToe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D637852C8E366400152CE1 /* TicTacToe in Frameworks */,
 				168688772C8DEE8200D55320 /* SnapKit in Frameworks */,
 				168688792C8DEE8200D55320 /* SnapKit-Dynamic in Frameworks */,
 			);
@@ -60,6 +62,7 @@
 				168688882C8E306800D55320 /* TicTacToe */,
 				168688562C8DE81600D55320 /* MiniAppsCollection */,
 				168688552C8DE81600D55320 /* Products */,
+				16D637832C8E366400152CE1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -155,6 +158,13 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		16D637832C8E366400152CE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,6 +184,7 @@
 			packageProductDependencies = (
 				168688762C8DEE8200D55320 /* SnapKit */,
 				168688782C8DEE8200D55320 /* SnapKit-Dynamic */,
+				16D637842C8E366400152CE1 /* TicTacToe */,
 			);
 			productName = MiniAppsCollection;
 			productReference = 168688542C8DE81600D55320 /* MiniAppsCollection.app */;
@@ -476,6 +487,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 168688752C8DEE8200D55320 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		16D637842C8E366400152CE1 /* TicTacToe */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TicTacToe;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

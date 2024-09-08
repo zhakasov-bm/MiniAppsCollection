@@ -11,6 +11,13 @@ final class AppCell: UITableViewCell {
     
     static let reuseId = String(describing: AppCell.self)
     
+    private let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 15
+        return view
+    }()
+    
     private let appImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 15
@@ -37,10 +44,17 @@ final class AppCell: UITableViewCell {
     }
     
     private func setupViews() {
-        contentView.addSubviews([appImageView, titleLabel])
+        contentView.backgroundColor = .systemGray6
+        contentView.addSubview(containerView)
+        containerView.addSubviews([appImageView, titleLabel])
     }
     
     private func setupConstraints() {
+        containerView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(8)
+            make.bottom.equalToSuperview().offset(-10)
+        }
         appImageView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(8)
             make.leading.equalToSuperview().offset(8)

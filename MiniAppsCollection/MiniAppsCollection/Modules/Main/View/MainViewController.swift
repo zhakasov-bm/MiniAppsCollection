@@ -17,9 +17,11 @@ final class MainViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(AppCell.self)
         return tableView
     }()
     
@@ -29,7 +31,7 @@ final class MainViewController: UIViewController {
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemGray6
         view.addSubview(tableView)
     }
     
@@ -54,6 +56,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell: AppCell = tableView.dequeueReusableCell(for: indexPath)
+        return cell
     }
 }

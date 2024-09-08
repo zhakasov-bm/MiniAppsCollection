@@ -9,8 +9,6 @@ import UIKit
 
 final class AppCell: UITableViewCell {
     
-    static let reuseId = String(describing: AppCell.self)
-    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol IMainView: AnyObject {
     var presenter: IMainPresenter? { get set }
@@ -33,7 +34,9 @@ final class MainViewController: UIViewController {
     }
     
     private func setupConstraints() {
-        
+        tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
 

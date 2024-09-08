@@ -63,4 +63,10 @@ final class AppCell: UITableViewCell {
             make.leading.equalTo(appImageView.snp.trailing).offset(32)
         }
     }
+    
+    func configure(with miniApp: MiniApp?) {
+        guard let miniApp else { return }
+        appImageView.image = miniApp.image
+        titleLabel.text = miniApp.title
+    }
 }

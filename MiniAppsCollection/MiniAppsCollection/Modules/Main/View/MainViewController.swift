@@ -52,11 +52,13 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return presenter?.numberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: AppCell = tableView.dequeueReusableCell(for: indexPath)
+        let miniApp = presenter?.miniAppForIndexPath(indexPath)
+        cell.configure(with: miniApp)
         return cell
     }
 }

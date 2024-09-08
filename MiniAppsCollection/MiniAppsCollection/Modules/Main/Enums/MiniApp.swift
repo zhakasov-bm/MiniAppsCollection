@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum MiniApps {
+enum MiniApp {
     case weather
     case ticTacToe
     case flags

@@ -28,7 +28,8 @@ final class MainViewController: UIViewController {
     }
     
     private func setupViews() {
-        
+        view.backgroundColor = .white
+        view.addSubview(tableView)
     }
     
     private func setupConstraints() {

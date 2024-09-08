@@ -31,6 +31,8 @@ final class AppCell: UITableViewCell {
         return label
     }()
     
+    private var cellHeight: CellHeight = .oneEight
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -41,12 +43,20 @@ final class AppCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        appImageView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(8)
-            make.leading.equalToSuperview().offset(8)
-            make.width.equalTo(appImageView.snp.height)
+        DispatchQueue.main.async {
+            let side = min(100, self.containerView.frame.height - 16)
+            self.appImageView.snp.remakeConstraints { make in
+                make.top.equalToSuperview().inset(8)
+                make.leading.equalToSuperview().offset(8)
+                make.size.equalTo(side)
+            }
         }
     }
     
@@ -69,9 +79,24 @@ final class AppCell: UITableViewCell {
         }
     }
     
-    func configure(with miniApp: MiniApp?) {
+    func configure(with miniApp: MiniApp?, height: CellHeight) {
         guard let miniApp else { return }
+        cellHeight = height
+        switch height {
+        case .half:
+            configureForHalfHeight()
+        case .oneEight:
+            configureForOneEightHeight()
+        }
         appImageView.image = miniApp.image
         titleLabel.text = miniApp.title
+    }
+    
+    private func configureForHalfHeight() {
+        
+    }
+    
+    private func configureForOneEightHeight() {
+        
     }
 }

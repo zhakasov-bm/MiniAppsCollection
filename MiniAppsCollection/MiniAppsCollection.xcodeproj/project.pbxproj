@@ -20,6 +20,7 @@
 		168688802C8DF4D900D55320 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1686887F2C8DF4D900D55320 /* UITableView+Extensions.swift */; };
 		168688822C8DF7E100D55320 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688812C8DF7E100D55320 /* UIColor+Extensions.swift */; };
 		168688852C8E00CE00D55320 /* MiniApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688842C8E00CE00D55320 /* MiniApp.swift */; };
+		168688872C8E1F4700D55320 /* CellHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168688862C8E1F4700D55320 /* CellHeight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		1686887F2C8DF4D900D55320 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		168688812C8DF7E100D55320 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		168688842C8E00CE00D55320 /* MiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniApp.swift; sourceTree = "<group>"; };
+		168688862C8E1F4700D55320 /* CellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				168688842C8E00CE00D55320 /* MiniApp.swift */,
+				168688862C8E1F4700D55320 /* CellHeight.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				168688582C8DE81600D55320 /* AppDelegate.swift in Sources */,
 				168688822C8DF7E100D55320 /* UIColor+Extensions.swift in Sources */,
 				168688742C8DED5200D55320 /* UIView+Extensions.swift in Sources */,
+				168688872C8E1F4700D55320 /* CellHeight.swift in Sources */,
 				1686887E2C8DF05500D55320 /* AppCell.swift in Sources */,
 				1686885A2C8DE81600D55320 /* SceneDelegate.swift in Sources */,
 				1686886E2C8DEAE800D55320 /* MainViewController.swift in Sources */,

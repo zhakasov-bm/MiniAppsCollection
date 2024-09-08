@@ -94,28 +94,8 @@ extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let screenHeight = max(view.frame.height, view.frame.width)
-        let cellHeight: CellHeight = switchView.isOn ? .half : .oneEight
-        let orientation: String
-        switch UIDevice.current.orientation {
-        case .unknown:
-            break
-        case .portrait, .portraitUpsideDown:
-            if cellHeight == .half {
-                return view.frame.height / 2
-            } else {
-                return (view.frame.height - 10 * 7) / 8
-            }
-        default:
-            if cellHeight == .half {
-                return view.frame.height / 2
-            } else {
-                return (view.frame.width - 10 * 7) / 8
-            }
-        }
-        // For rotation state
-        if switchView.isOn {
-            return screenHeight / 2
-        }
-        return (screenHeight - 10 * 7) / 8
+        let isPortrait = UIDevice.current.orientation.isPortrait || UIDevice.current.orientation.isFlat
+        let cellHeight: CGFloat = switchView.isOn ? screenHeight / 2 : (screenHeight - 10 * 7) / 8
+        return isPortrait ? cellHeight : (view.frame.width - 10 * 7) / 8
     }
 }

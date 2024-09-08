@@ -41,6 +41,15 @@ final class AppCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        appImageView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(8)
+            make.leading.equalToSuperview().offset(8)
+            make.width.equalTo(appImageView.snp.height)
+        }
+    }
+    
     private func setupViews() {
         contentView.backgroundColor = .systemGray6
         contentView.addSubview(containerView)
@@ -52,11 +61,6 @@ final class AppCell: UITableViewCell {
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(8)
             make.bottom.equalToSuperview().offset(-10)
-        }
-        appImageView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(8)
-            make.leading.equalToSuperview().offset(8)
-            make.size.equalTo(100)
         }
         titleLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)

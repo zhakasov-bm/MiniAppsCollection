@@ -21,6 +21,7 @@ final class MainViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = (view.frame.height - 10 * 7) / 8
         tableView.register(AppCell.self)
         return tableView
     }()

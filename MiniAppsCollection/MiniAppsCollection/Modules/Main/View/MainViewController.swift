@@ -21,14 +21,21 @@ final class MainViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = (view.frame.height - 10 * 7) / 8
         tableView.register(AppCell.self)
+        if #available(iOS 15, *) {
+            tableView.sectionHeaderTopPadding = 0
+        }
         return tableView
     }()
     
     override func viewDidLoad() {
         setupViews()
         setupConstraints()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.reloadData()
     }
     
     private func setupViews() {
@@ -61,5 +68,11 @@ extension MainViewController: UITableViewDataSource {
         let miniApp = presenter?.miniAppForIndexPath(indexPath)
         cell.configure(with: miniApp)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // For rotation state
+        let screenHeight = max(view.frame.height, view.frame.width)
+        return (screenHeight - 10 * 7) / 8
     }
 }

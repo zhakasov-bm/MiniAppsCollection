@@ -51,6 +51,7 @@ final class AppCell: UITableViewCell {
     }
     
     private func setupViews() {
+        backgroundColor = .systemGray6
         contentView.backgroundColor = .systemGray6
         contentView.addSubview(containerView)
         containerView.addSubviews([appImageView, titleLabel])

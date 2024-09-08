@@ -15,6 +15,7 @@ final class AppCell: UITableViewCell {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 15
         imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "ic_flags")
         return imageView
     }()
     

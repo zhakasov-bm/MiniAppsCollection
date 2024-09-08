@@ -38,6 +38,7 @@
 		168688812C8DF7E100D55320 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		168688842C8E00CE00D55320 /* MiniApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniApp.swift; sourceTree = "<group>"; };
 		168688862C8E1F4700D55320 /* CellHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHeight.swift; sourceTree = "<group>"; };
+		168688882C8E306800D55320 /* TicTacToe */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TicTacToe; path = ../TicTacToe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		1686884B2C8DE81600D55320 = {
 			isa = PBXGroup;
 			children = (
+				168688882C8E306800D55320 /* TicTacToe */,
 				168688562C8DE81600D55320 /* MiniAppsCollection */,
 				168688552C8DE81600D55320 /* Products */,
 			);
